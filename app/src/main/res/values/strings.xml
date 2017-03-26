@@ -5,11 +5,11 @@
     <string name="team_b">Team B</string>
 
     <string name="zero_points">0</string>
-    <string name="total_fauls">FAULS</string>
+    <string name="total_faults">FAULTS</string>
     <string name="total_cards">CARDS</string>
 
     <string name="add_goal">Add Goal</string>
-    <string name="add_faul">Add Faul</string>
+    <string name="add_fault">Add Fault</string>
     <string name="add_card">Add Card</string>
 
     <string name="reset">Reset</string>

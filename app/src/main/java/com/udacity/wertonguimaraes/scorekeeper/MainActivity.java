@@ -9,17 +9,17 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private TextView mGoalTeamA;
-    private TextView mFaulTeamA;
+    private TextView mFaultTeamA;
     private TextView mCardTeamA;
     private Button mAddGoalTeamA;
-    private Button mAddFaulTeamA;
+    private Button mAddFaultTeamA;
     private Button mAddCardTeamA;
 
     private TextView mGoalTeamB;
-    private TextView mFaulTeamB;
+    private TextView mFaultTeamB;
     private TextView mCardTeamB;
     private Button mAddGoalTeamB;
-    private Button mAddFaulTeamB;
+    private Button mAddFaultTeamB;
     private Button mAddCardTeamB;
 
     private Button mReset;
@@ -35,17 +35,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void mInitView() {
         mGoalTeamA = (TextView) findViewById(R.id.total_goal_team_a);
-        mFaulTeamA = (TextView) findViewById(R.id.total_faul_team_a);
+        mFaultTeamA = (TextView) findViewById(R.id.total_fault_team_a);
         mCardTeamA = (TextView) findViewById(R.id.total_card_team_a);
         mAddGoalTeamA = (Button) findViewById(R.id.add_goal_a);
-        mAddFaulTeamA = (Button) findViewById(R.id.add_faul_a);
+        mAddFaultTeamA = (Button) findViewById(R.id.add_fault_a);
         mAddCardTeamA = (Button) findViewById(R.id.add_card_a);
 
         mGoalTeamB = (TextView) findViewById(R.id.total_goal_team_b);
-        mFaulTeamB = (TextView) findViewById(R.id.total_faul_team_b);
+        mFaultTeamB = (TextView) findViewById(R.id.total_fault_team_b);
         mCardTeamB = (TextView) findViewById(R.id.total_card_team_b);
         mAddGoalTeamB = (Button) findViewById(R.id.add_goal_b);
-        mAddFaulTeamB = (Button) findViewById(R.id.add_faul_b);
+        mAddFaultTeamB = (Button) findViewById(R.id.add_fault_b);
         mAddCardTeamB = (Button) findViewById(R.id.add_card_b);
 
         mReset = (Button) findViewById(R.id.reset);
@@ -54,11 +54,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void mInitButtonListeners() {
         mAddGoalTeamA.setOnClickListener(mAddPointListener);
-        mAddFaulTeamA.setOnClickListener(mAddPointListener);
+        mAddFaultTeamA.setOnClickListener(mAddPointListener);
         mAddCardTeamA.setOnClickListener(mAddPointListener);
 
         mAddGoalTeamB.setOnClickListener(mAddPointListener);
-        mAddFaulTeamB.setOnClickListener(mAddPointListener);
+        mAddFaultTeamB.setOnClickListener(mAddPointListener);
         mAddCardTeamB.setOnClickListener(mAddPointListener);
 
         mReset.setOnClickListener(mAddPointListener);
@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.add_goal_a:
                     mAddPoints(mGoalTeamA, 1);
                     break;
-                case R.id.add_faul_a:
-                    mAddPoints(mFaulTeamA, 1);
+                case R.id.add_fault_a:
+                    mAddPoints(mFaultTeamA, 1);
                     break;
                 case R.id.add_card_a:
                     mAddPoints(mCardTeamA, 1);
@@ -80,8 +80,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.add_goal_b:
                     mAddPoints(mGoalTeamB, 1);
                     break;
-                case R.id.add_faul_b:
-                    mAddPoints(mFaulTeamB, 1);
+                case R.id.add_fault_b:
+                    mAddPoints(mFaultTeamB, 1);
                     break;
                 case R.id.add_card_b:
                     mAddPoints(mCardTeamB, 1);
@@ -103,10 +103,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void mResetAllPoints(){
         mResetSpecificPoint(mGoalTeamA);
-        mResetSpecificPoint(mFaulTeamA);
+        mResetSpecificPoint(mFaultTeamA);
         mResetSpecificPoint(mCardTeamA);
         mResetSpecificPoint(mGoalTeamB);
-        mResetSpecificPoint(mFaulTeamB);
+        mResetSpecificPoint(mFaultTeamB);
         mResetSpecificPoint(mCardTeamB);
     }
 
