@@ -1,0 +1,116 @@
+package com.udacity.wertonguimaraes.scorekeeper;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    private TextView mGoalTeamA;
+    private TextView mFaulTeamA;
+    private TextView mCardTeamA;
+    private Button mAddGoalTeamA;
+    private Button mAddFaulTeamA;
+    private Button mAddCardTeamA;
+
+    private TextView mGoalTeamB;
+    private TextView mFaulTeamB;
+    private TextView mCardTeamB;
+    private Button mAddGoalTeamB;
+    private Button mAddFaulTeamB;
+    private Button mAddCardTeamB;
+
+    private Button mReset;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mInitView();
+        mInitButtonListeners();
+    }
+
+    private void mInitView() {
+        mGoalTeamA = (TextView) findViewById(R.id.total_goal_team_a);
+        mFaulTeamA = (TextView) findViewById(R.id.total_faul_team_a);
+        mCardTeamA = (TextView) findViewById(R.id.total_card_team_a);
+        mAddGoalTeamA = (Button) findViewById(R.id.add_goal_a);
+        mAddFaulTeamA = (Button) findViewById(R.id.add_faul_a);
+        mAddCardTeamA = (Button) findViewById(R.id.add_card_a);
+
+        mGoalTeamB = (TextView) findViewById(R.id.total_goal_team_b);
+        mFaulTeamB = (TextView) findViewById(R.id.total_faul_team_b);
+        mCardTeamB = (TextView) findViewById(R.id.total_card_team_b);
+        mAddGoalTeamB = (Button) findViewById(R.id.add_goal_b);
+        mAddFaulTeamB = (Button) findViewById(R.id.add_faul_b);
+        mAddCardTeamB = (Button) findViewById(R.id.add_card_b);
+
+        mReset = (Button) findViewById(R.id.reset);
+
+    }
+
+    private void mInitButtonListeners() {
+        mAddGoalTeamA.setOnClickListener(mAddPointListener);
+        mAddFaulTeamA.setOnClickListener(mAddPointListener);
+        mAddCardTeamA.setOnClickListener(mAddPointListener);
+
+        mAddGoalTeamB.setOnClickListener(mAddPointListener);
+        mAddFaulTeamB.setOnClickListener(mAddPointListener);
+        mAddCardTeamB.setOnClickListener(mAddPointListener);
+
+        mReset.setOnClickListener(mAddPointListener);
+    }
+
+    private View.OnClickListener mAddPointListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.add_goal_a:
+                    mAddPoints(mGoalTeamA, 1);
+                    break;
+                case R.id.add_faul_a:
+                    mAddPoints(mFaulTeamA, 1);
+                    break;
+                case R.id.add_card_a:
+                    mAddPoints(mCardTeamA, 1);
+                    break;
+                case R.id.add_goal_b:
+                    mAddPoints(mGoalTeamB, 1);
+                    break;
+                case R.id.add_faul_b:
+                    mAddPoints(mFaulTeamB, 1);
+                    break;
+                case R.id.add_card_b:
+                    mAddPoints(mCardTeamB, 1);
+                    break;
+                case R.id.reset:
+                    mResetAllPoints();
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
+    private void mAddPoints(TextView textView, int point){
+        int oldPoints = Integer.parseInt(textView.getText().toString());
+        String currentPoints = String.valueOf(oldPoints + point);
+        textView.setText(currentPoints);
+    }
+
+    private void mResetAllPoints(){
+        mResetSpecificPoint(mGoalTeamA);
+        mResetSpecificPoint(mFaulTeamA);
+        mResetSpecificPoint(mCardTeamA);
+        mResetSpecificPoint(mGoalTeamB);
+        mResetSpecificPoint(mFaulTeamB);
+        mResetSpecificPoint(mCardTeamB);
+    }
+
+    private void mResetSpecificPoint(TextView textView){
+        textView.setText("0");
+    }
+}
